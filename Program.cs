@@ -43,15 +43,15 @@ start:
                                 Console.WriteLine("duzgun deyer daxil et");
                 break;
             }
-            Student deletestudent=context.Students.FirstOrDefault(s=>s.GroupId==gid);
-            if(deletestudent is null)
+            Group deletegroup=context.Groups.FirstOrDefault(s=>s.Id==gid);
+            if(deletegroup is null)
             {
                 Console.WriteLine("Silmek istediyiniz Group yoxdur");
                 break;
             }
-            context.Groups.Remove(deletestudent);
+            context.Groups.Remove(deletegroup);
             context.SaveChanges();
-            Console.WriteLine("Student silindi."); break;
+            Console.WriteLine("Group silindi."); break;
 
         case 4:
         adinput:
@@ -148,4 +148,5 @@ start:
             break;
     }
             goto start; 
+
 }
