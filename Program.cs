@@ -43,15 +43,15 @@ start:
                                 Console.WriteLine("duzgun deyer daxil et");
                 break;
             }
-            Group deletegroup=context.Groups.FirstOrDefault(s=>s.Id==gid);
-            if(deletegroup is null)
+            Group deleteg=context.Groups.FirstOrDefault(s=>s.Id==gid);
+            if(deleteg is null)
             {
                 Console.WriteLine("Silmek istediyiniz Group yoxdur");
                 break;
             }
-            context.Groups.Remove(deletegroup);
+            context.Groups.Remove(deleteg);
             context.SaveChanges();
-            Console.WriteLine("Group silindi."); break;
+            Console.WriteLine("Student silindi."); break;
 
         case 4:
         adinput:
@@ -61,14 +61,6 @@ start:
             {
                 Console.WriteLine("Ad minimum 3 simvol olmalidir");
                 goto adinput;
-            }
-        soyadinput:
-            Console.Write("Soyad: ");
-            string soyad = Console.ReadLine();
-            if(soyad==null||soyad.Length<3)
-            {
-                Console.WriteLine("Soyad minimum 3 simvol olmalidir");
-                goto soyadinput;
             }
         ageInput:
             Console.Write("Age: ");
@@ -102,10 +94,9 @@ start:
             }
 
 
-            Student student(new)
+            Student student=new Student()
             {
-                Ad = ad,
-                Soyad = soyad,
+                Name = ad,
                 Age = age,
                 Grade = grade,
                 GroupId = groupId
@@ -148,5 +139,4 @@ start:
             break;
     }
             goto start; 
-
 }
