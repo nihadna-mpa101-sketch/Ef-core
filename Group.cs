@@ -10,10 +10,12 @@ namespace ConsoleApp21
     {
         public int Id { get; set; }
         public string Name { get; set; }
+        
         override public string ToString()
         {
-            return $"{Id}  {Name}";
+            return $"{Id}.  {Name}";
         }
     }
 }
+
 
